@@ -152,8 +152,8 @@ void setup() {
   Serial.begin(115200);
   Serial.println("________________________________________________________________");
   Serial.println("Just woke up.");
-  battery.onDemand(BATTERY_MONITOR_ENABLE, HIGH);
-  battery.begin(5000, 1.37, &sigmoidal);
+  //battery.onDemand(BATTERY_MONITOR_ENABLE, HIGH);
+  battery.begin(3300, 1.37, &sigmoidal);
   Serial.println(analogRead(BATTERY_MONITOR));
   Serial.println(ADCtoVoltage());
   EEPROM.begin(EEPROM_SIZE);
