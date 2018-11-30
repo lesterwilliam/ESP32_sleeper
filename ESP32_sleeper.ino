@@ -19,7 +19,7 @@
 #include "Battery.h"
 
 // Battery initiation
-Battery battery(3400, 4200, BATTERY_MONITOR);
+Battery battery(3000, 4200, BATTERY_MONITOR);
 
 // Blynk initiation
 BlynkTimer timer;
@@ -153,7 +153,7 @@ void setup() {
   Serial.println("________________________________________________________________");
   Serial.println("Just woke up.");
   battery.onDemand(BATTERY_MONITOR_ENABLE, HIGH);
-  battery.begin(5000, 1.0, &sigmoidal);
+  battery.begin(5000, 1.37, &sigmoidal);
   Serial.println(analogRead(BATTERY_MONITOR));
   Serial.println(ADCtoVoltage());
   EEPROM.begin(EEPROM_SIZE);
@@ -223,7 +223,7 @@ void setup() {
   // Print to blynk terminal
   terminal.println("Date: " + String(dayStamp) + "\nTime: " + String(timeStamp));
   terminal.println("BootCount: " + String(bootCount));
-  terminal.println("Battery voltage: " + String(battery.voltage()) + "V - " + String(battery.level()) + "%");
+  terminal.println("Battery voltage: " + String(battery.voltage()) + "mV - " + String(battery.level()) + "%");
   terminal.flush();
   //Print the wakeup reason for ESP32
   print_wakeup_reason();

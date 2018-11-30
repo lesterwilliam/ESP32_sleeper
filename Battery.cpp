@@ -66,7 +66,7 @@ uint16_t Battery::voltage() {
 	}
 	analogRead(sensePin);
 	delay(2); // allow the ADC to stabilize
-	uint16_t reading = analogRead(sensePin) * dividerRatio * refVoltage / 1024;
+	uint16_t reading = analogRead(sensePin) * dividerRatio * refVoltage / 4096;
 	if (activationPin != 0xFF) {
 		digitalWrite(activationPin, !activationMode);
 	}
