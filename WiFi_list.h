@@ -6,6 +6,6 @@ char ssid[][20] = {
 };
 
 char pass[][50] = {
-  "ea6v-f22u-1ynp-wbzf",
-  "elaso4528",
+  "xxx",
+  "xxx",
 };
